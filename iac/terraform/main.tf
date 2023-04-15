@@ -1,8 +1,3 @@
-# Provider Block
-provider "azurerm" {
- features {}          
-}
-
 # Create Azure Storage account
 resource "azurerm_storage_account" "storage_account" {
   name                = "${local.resources_prefix}sa"
