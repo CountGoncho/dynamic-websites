@@ -1,9 +1,8 @@
 resource "random_string" "uniquer" {
-  length  = 5
+  length = 5
+  upper = false 
   special = false
-  number  = true
-  lower   = false
-  upper   = false
+  numeric = true  
 }
 
 locals {
