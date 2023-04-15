@@ -1,4 +1,4 @@
-name: "Manual - deploy static web host"
+name: "Static web host - validate changes"
 
 # run on push to main branch only
 on:

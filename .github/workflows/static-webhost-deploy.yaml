@@ -1,4 +1,4 @@
-name: "Deploy - IaC (Terraform)"
+name: "Static web host - deploy"
 
 # run on push to main branch only
 on:
