@@ -1,7 +1,7 @@
 # Create Azure Storage account
 resource "azurerm_storage_account" "storage_account" {
   name                = "${local.resources_prefix}sa"
-  resource_group_name = "${local.resource_group}"
+  resource_group_name = "${local.resource_group_name}"
 
   location                 = var.location
   account_tier             = var.storage_account_tier
