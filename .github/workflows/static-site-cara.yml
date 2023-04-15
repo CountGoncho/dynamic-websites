@@ -1,0 +1,48 @@
+name: "Build static site - Jodie template"
+
+# run on push to main branch only
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "static-site-gats/gatsby-site-jodie/**"
+  workflow_dispatch:
+
+# Set defaults for GitHub Actions runner
+defaults:
+  run:
+    working-directory: "./static-site-gats/gatsby-site-jodie"
+
+jobs:
+  # This workflow has just a single job named `build`.
+  build:
+    # Run this job on a Github hosted action runner with the latest version of ubuntu installed.
+    runs-on: ubuntu-latest
+
+    strategy:  
+     matrix:  
+      node-version: [18.x]  
+
+    # A job has one or more steps.
+    steps:
+      # Checkout the project source files to the Github Action runner.
+      # This is roughly equivalent to running `git checkout`.
+      - name: Checkout source
+        uses: actions/checkout@v1
+
+      # Install the version of Node.js used by project.
+      - name: Use Node.js ${{ matrix.node-version }}  
+        uses: actions/setup-node@v1  
+        with:  
+            node-version: ${{ matrix.node-version }}
+
+      # Install the dependencies like Gatsby
+      - name: Install dependencies  
+        run: |  
+          npm install  
+          npm install -g gatsby-cli
+
+      # Build the Gatsby site
+      - name: Build with Gatsby  
+        run: gatsby build 
