@@ -9,3 +9,25 @@ variable "resource_group" {
   type        = string
   default     = "Marketing"
 }
+
+variable "uniquer" {
+  description = ""
+  type        = string
+  default     = null
+}
+
+variable "resources_prefix" {
+  description = ""
+  type        = string
+  default     = null
+}
+
+variable "storage_account_name" {
+  description = "The name of the storage account"
+  type        = string   
+}
+
+variable "storage_account_tier" {
+  description = "Storage Account Tier"
+  type        = string   
+}
