@@ -58,7 +58,6 @@ jobs:
   deploy:
     name: "Deploy"
     needs: preview
-    if: needs.preview.outputs.TFPLAN_EXITCODE == 2 # it is not part of the challenge, but nice to have
     runs-on: ubuntu-latest
     environment: production
 
