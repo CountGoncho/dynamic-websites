@@ -24,10 +24,12 @@ variable "resources_prefix" {
 
 variable "storage_account_name" {
   description = "The name of the storage account"
-  type        = string   
+  type        = string
+  default     = null
 }
 
 variable "storage_account_tier" {
   description = "Storage Account Tier"
-  type        = string   
+  type        = string
+  default     = "Standard"
 }
