@@ -1,4 +1,4 @@
-name: "Build static site - Jodie template"
+name: "Build static site - Cara template"
 
 # run on push to main branch only
 on:
