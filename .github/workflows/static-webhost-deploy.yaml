@@ -67,4 +67,4 @@ jobs:
     steps:
       # Terraform Apply
       - name: Terraform Apply
-        run: terraform apply  tf.plan -auto-approve -var="location=${{ secrets.LOCATION }}" -var="resources_prefix=mktg"
+        run: terraform apply  tf.plan -auto-approve -var="location=uk south" -var="resources_prefix=mktg"
