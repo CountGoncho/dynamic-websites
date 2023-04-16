@@ -33,3 +33,15 @@ variable "storage_account_tier" {
   type        = string
   default     = "Standard"
 }
+
+variable "storage_account_replication_type" {
+  description = "Storage Account Replication Type"
+  type        = string
+  default     = "LRS"   
+}
+
+variable "storage_account_kind" {
+  description = "Storage Account Kind"
+  type        = string
+  default     = "StorageV2"   
+}
