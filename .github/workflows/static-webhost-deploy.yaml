@@ -28,9 +28,6 @@ jobs:
   preview:
     name: "Preview Changes"
     runs-on: ubuntu-latest
-    outputs:
-      TFPLAN_EXITCODE: ${{ steps.tfplan.outputs.exitcode }}
-      RESOURCES_PREFIX: ${{ steps.resources_prefix.outputs.result }}
 
     steps:
       # Checkout the repository to the GitHub Actions runner
