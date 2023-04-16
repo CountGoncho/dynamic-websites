@@ -31,5 +31,4 @@ variable "storage_account_name" {
 variable "storage_account_tier" {
   description = "Storage Account Tier"
   type        = string
-  default     = "Standard"
 }
