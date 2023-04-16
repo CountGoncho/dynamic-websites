@@ -25,7 +25,7 @@ variable "resources_prefix" {
 variable "storage_account_name" {
   description = "The name of the storage account"
   type        = string
-  default     = null
+  default     = "marketingtestsa"
 }
 
 variable "storage_account_tier" {
