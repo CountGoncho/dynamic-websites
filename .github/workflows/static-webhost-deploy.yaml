@@ -35,7 +35,7 @@ jobs:
     steps:
       # Checkout the repository to the GitHub Actions runner
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # Get RESOURCES_PREFIX based on the repo name
       - name: Get repo name
@@ -47,7 +47,7 @@ jobs:
 
       # Install the latest version of Terraform CLI
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
+        uses: hashicorp/setup-terraform@v2
 
       # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
       - name: Terraform Init
@@ -58,34 +58,3 @@ jobs:
       - name: Terraform Plan
         run: terraform plan -detailed-exitcode -var="location=${{ secrets.LOCATION }}" -var="resources_prefix=${{ steps.resources_prefix.outputs.result }}" || exit 0
         id: tfplan
-
-  deploy:
-    name: "Deploy"
-    needs: preview
-    if: needs.preview.outputs.TFPLAN_EXITCODE == 2 # it is not part of the challenge, but nice to have
-    runs-on: ubuntu-latest
-    environment: production
-
-    steps:
-      # Checkout the repository to the GitHub Actions runner
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      # Login to Azure with Service Principal
-      # This step is not required by Terraform itself, but Terraform code contains resources with "az" commands to execute on agent locally.
-      - name: Azure Login
-        uses: Azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      # Install the latest version of Terraform CLI
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
-
-      # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
-      - name: Terraform Init
-        run: terraform init -backend-config=resource_group_name="${{ secrets.TFSTATE_RESOURCES_GROUP_NAME }}" -backend-config=storage_account_name="${{ secrets.TFSTATE_STORAGE_ACCOUNT_NAME }}" -backend-config=container_name="${{ secrets.TFSTATE_STORAGE_CONTAINER_NAME }}" -backend-config=key="${{ secrets.TFSTATE_KEY }}"
-
-      # Terraform Apply
-      - name: Terraform Apply
-        run: terraform apply -auto-approve -var="location=${{ secrets.LOCATION }}" -var="resources_prefix=${{ needs.preview.outputs.RESOURCES_PREFIX }}"
