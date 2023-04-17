@@ -6,7 +6,7 @@ module "webstorage" {
   //for_each            = toset(var.website_unique_ids)
   resource_unique_id  = each.key
   resource_all_prefix = "marketing"
-  website_unique_name = lower("${var.resource_all_prefix}${var.resource_unique_id}")
+  website_unique_name = lower("${resource_all_prefix}${resource_unique_id}")
   //resource_web_base_path = "./public"
 }
 
