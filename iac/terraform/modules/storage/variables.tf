@@ -51,3 +51,21 @@ variable "web_container_name" {
   type        = string
   default     = "$web"
 }
+
+variable "resource_unique_id" {
+  description = "(required) resource unique identifier"
+  type        = string
+  default     = null
+}
+
+variable "resource_all_prefix" {
+  description = "prefix for resources"
+  type        = string
+  default     = null
+}
+
+variable "website_unique_name" {
+  description = "The varying unique names of the websites "
+  type        = string
+  default     = null
+}
