@@ -22,10 +22,10 @@ variable "resources_prefix" {
   default     = null
 }
 
-variable "storage_account_name" {
+variable "storage_account_list" {
   description = "The name of the storage account"
-  type        = string
-  default     = "marketingtestsa"
+  type        = list
+  default     = ["marketing1", "marketing2","marketing3"]
 }
 
 variable "storage_account_tier" {
