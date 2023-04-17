@@ -28,18 +28,6 @@ variable "uniquer" {
   default     = null
 }
 
-variable "resources_prefix" {
-  description = ""
-  type        = string
-  default     = null
-}
-
-variable "storage_account_list" {
-  description = "The base names of the storage account"
-  type        = list(any)
-  default     = ["marketing3de4k", "marketingg35tgw", "marketing3kdj2"]
-}
-
 variable "storage_account_tier" {
   description = "Storage Account Tier"
   type        = string
@@ -70,14 +58,20 @@ variable "static_website_error_404_document" {
   default     = "error.html"
 }
 
-variable "static_website_source_folder" {
-  description = "static website source folder"
-  type        = string
-  default     = "web"
-}
-
-variable "storage_container_name" {
+variable "web_container_name" {
   description = "static website source folder"
   type        = string
   default     = "$web"
+}
+
+variable "files_source_path" {
+  description = "(required) file path where the web content files reside"
+  type        = string
+  default     = null
+}
+// not needed
+variable "files_source_path_search" {
+  description = "(required) search path to build list"
+  type        = string
+  default     = null
 }

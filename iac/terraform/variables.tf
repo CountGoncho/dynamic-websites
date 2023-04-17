@@ -22,10 +22,10 @@ variable "resources_prefix" {
   default     = null
 }
 
-variable "storage_account_list" {
-  description = "The base names of the storage account"
+variable "website_unique_ids" {
+  description = "The varying unique ids of the websites "
   type        = list(any)
-  default     = ["marketing3de4k", "marketingg35tgw", "marketing3kdj2"]
+  default     = ["webkey01", "website02", "website03"]
 }
 
 variable "storage_account_tier" {

@@ -14,11 +14,14 @@ resource "azurerm_storage_account" "storage_account" {
 }
 
 resource "azurerm_storage_blob" "webload" {
-  for_each = fileset(path.module, lower("${var.resource_all_prefix}${var.resource_unique_id}/**"))
+  files_source_path = lower("${var.resource_all_prefix}${var.resource_unique_id}")
+  //files_source_path_search = format("%s/**", "${files_source_path}" )
 
-  name                   = trimprefix(each.key, "marketingwebkey01/")
+  for_each = fileset(path.module, "${files_source_path}/**")
+
+  name                   = trimprefix(each.key, "${files_source_path}/")
   storage_account_name   = azurerm_storage_account.storage_account.name
-  storage_container_name = var.storage_container_name
+  storage_container_name = var.web_container_name
   type                   = "Block"
   source                 = each.key
   content_type           = "text/html"
