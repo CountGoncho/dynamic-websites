@@ -1,5 +1,5 @@
 # storage module
-module "storage" {
+module "webstorage" {
   source         = "./modules/storage"
   resource_group = local.resource_group_name
 
