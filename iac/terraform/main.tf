@@ -1,3 +1,15 @@
+# storage module
+module "storage" {
+  source         = "./modules/storage"
+  resource_group = local.resource_group_name
+
+  for_each            = toset(["webkey01", "fdsafds", "dfhfd"])
+  resource_unique_id  = each.key
+  resource_all_prefix = "marketing"
+  //resource_web_base_path = "./public"
+}
+
+/*
 # Create Azure Storage account
 resource "azurerm_storage_account" "storage_account" {
   for_each                 = toset(var.storage_account_list)
@@ -13,6 +25,7 @@ resource "azurerm_storage_account" "storage_account" {
     error_404_document = var.static_website_error_404_document
   }
 }
+*/
 /*
 resource "azurerm_storage_blob" "webload" {
   for_each = fileset(path.module, "public/**")
