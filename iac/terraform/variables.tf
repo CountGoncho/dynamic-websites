@@ -22,22 +22,10 @@ variable "resources_prefix" {
   default     = null
 }
 
-variable "resource_unique_id" {
-  description = "(required) resource unique identifier"
-  type        = string
-  default     = null
-}
-
-variable "resource_all_prefix" {
-  description = "prefix for resources"
-  type        = string
-  default     = null
-}
-
 variable "storage_account_list" {
   description = "The base names of the storage account"
-  type        = list
-  default     = ["marketing3de4k", "marketingg35tgw","marketing3kdj2"]
+  type        = list(any)
+  default     = ["marketing3de4k", "marketingg35tgw", "marketing3kdj2"]
 }
 
 variable "storage_account_tier" {
