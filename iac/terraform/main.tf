@@ -2,7 +2,8 @@
 module "webstorage" {
   source = "./modules/storage"
 
-  for_each            = toset(["webkey01", "fdsafds", "dfhfd"])
+  //for_each            = toset(["webkey01", "fdsafds", "dfhfd"])
+  for_each            = toset(["webkey01", "webkey02"])
   resource_unique_id  = each.key
   resource_all_prefix = "marketing"
   //resource_web_base_path = "./public"
