@@ -14,9 +14,9 @@ resource "azurerm_storage_account" "storage_account" {
 }
 
 resource "azurerm_storage_blob" "webload" {
-  for_each = fileset(path.module, lower("../../${var.resource_all_prefix}${var.resource_unique_id}/**"))
+  for_each = fileset(path.module, lower("${var.resource_all_prefix}${var.resource_unique_id}/**"))
 
-  name                   = trimprefix(each.key, "../../marketingwebkey01/")
+  name                   = trimprefix(each.key, "marketingwebkey01/")
   storage_account_name   = azurerm_storage_account.storage_account.name
   storage_container_name = var.storage_container_name
   type                   = "Block"
