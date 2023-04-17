@@ -15,9 +15,9 @@ resource "azurerm_storage_account" "storage_account" {
 }
 
 resource "azurerm_storage_blob" "webload" {
-  for_each = fileset(path.module, "public/*")
+  for_each = fileset(path.module, "public/**")
 
-  name                   = trim(each.key, "public/")
+  name                   = each.key
   storage_account_name   = azurerm_storage_account.storage_account.name
   storage_container_name = local.storage_container_name
   type                   = "Block"
