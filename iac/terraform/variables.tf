@@ -7,7 +7,7 @@ variable "location" {
 variable "resource_group" {
   description = ""
   type        = string
-  default     = "Marketing"
+  default     = "marketingweb"
 }
 
 variable "uniquer" {
