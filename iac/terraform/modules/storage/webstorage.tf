@@ -1,6 +1,6 @@
 # Create Azure Storage account
 resource "azurerm_storage_account" "storage_account" {
-  name                     = lower("${var.resource_all_prefix}${var.resource_unique_id}")
+  name                     = var.website_unique_name
   resource_group_name      = var.resource_group_name
   location                 = var.location
   account_tier             = var.storage_account_tier
@@ -14,9 +14,9 @@ resource "azurerm_storage_account" "storage_account" {
 }
 
 resource "azurerm_storage_blob" "webload" {
-  for_each = fileset(path.module, "${var.files_source_path}/**")
+  for_each = fileset(path.module, "${var.website_unique_name}/**")
 
-  name                   = trimprefix(each.key, "${var.files_source_path}/")
+  name                   = trimprefix(each.key, "${var.website_unique_name}/")
   storage_account_name   = azurerm_storage_account.storage_account.name
   storage_container_name = var.web_container_name
   type                   = "Block"

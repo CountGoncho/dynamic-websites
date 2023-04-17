@@ -39,3 +39,9 @@ variable "website_unique_ids" {
   type        = list(any)
   default     = ["webkey01", "website02", "website03"]
 }
+
+variable "website_unique_name" {
+  description = "The varying unique names of the websites "
+  type        = string
+  default     = null
+}

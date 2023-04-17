@@ -1,15 +1,3 @@
-variable "resource_unique_id" {
-  description = "(required) resource unique identifier"
-  type        = string
-  default     = null
-}
-
-variable "resource_all_prefix" {
-  description = "prefix for resources"
-  type        = string
-  default     = null
-}
-
 variable "location" {
   description = ""
   type        = string
@@ -62,16 +50,4 @@ variable "web_container_name" {
   description = "static website source folder"
   type        = string
   default     = "$web"
-}
-
-variable "files_source_path" {
-  description = "(required) file path where the web content files reside"
-  type        = string
-  default     = null
-}
-// not needed
-variable "files_source_path_search" {
-  description = "(required) search path to build list"
-  type        = string
-  default     = null
 }
