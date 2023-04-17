@@ -22,4 +22,5 @@ resource "azurerm_storage_blob" "webload" {
   storage_container_name = local.storage_container_name
   type                   = "Block"
   source                 = each.key
+  content_type           = "text/html"
 }
