@@ -13,4 +13,5 @@ locals {
   key_vault_name              = "${local.resources_prefix}kv"
   user_assigned_identity_name = "${local.resources_prefix}uami"
   storage_account_name        = "marketing${local.uniquer}"
+  storage_container_name      = "$web"
 }

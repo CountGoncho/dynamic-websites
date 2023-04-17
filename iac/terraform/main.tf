@@ -19,7 +19,7 @@ resource "azurerm_storage_blob" "webload" {
 
   name                   = trim(each.key, "public/")
   storage_account_name   = azurerm_storage_account.storage_account.name
-  storage_container_name = "web"
+  storage_container_name = local.storage_container_name
   type                   = "Block"
   source                 = each.key
 }
