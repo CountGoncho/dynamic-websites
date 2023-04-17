@@ -3,9 +3,10 @@ module "webstorage" {
   source = "./modules/storage"
 
   //for_each            = toset(["webkey01", "fdsafds", "dfhfd"])
-  for_each            = toset(["webkey01"])
+  for_each            = toset(var.storage_account_list)
   resource_unique_id  = each.key
   resource_all_prefix = "marketing"
+  files_source_path = lower("${var.resource_all_prefix}${var.resource_unique_id}")
   //resource_web_base_path = "./public"
 }
 
