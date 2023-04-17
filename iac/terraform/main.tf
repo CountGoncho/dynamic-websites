@@ -1,7 +1,6 @@
 # storage module
 module "webstorage" {
-  source         = "./modules/storage"
-  resource_group = local.resource_group_name
+  source = "./modules/storage"
 
   for_each            = toset(["webkey01", "fdsafds", "dfhfd"])
   resource_unique_id  = each.key
