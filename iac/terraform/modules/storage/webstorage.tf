@@ -18,7 +18,7 @@ resource "azurerm_storage_blob" "webload" {
 
   name                   = trimprefix(each.key, "public/")
   storage_account_name   = azurerm_storage_account.storage_account.name
-  storage_container_name = local.storage_container_name
+  storage_container_name = var.storage_container_name
   type                   = "Block"
   source                 = each.key
   content_type           = "text/html"
