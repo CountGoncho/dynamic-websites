@@ -12,4 +12,5 @@ locals {
   resource_group_name         = "${var.resource_group}Rg"
   key_vault_name              = "${local.resources_prefix}kv"
   user_assigned_identity_name = "${local.resources_prefix}uami"
+  storage_account_name        = "marketing${var.uniquer}"
 }
