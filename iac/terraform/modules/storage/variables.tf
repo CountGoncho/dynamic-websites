@@ -75,3 +75,9 @@ variable "static_website_source_folder" {
   type        = string
   default     = "web"
 }
+
+variable "storage_container_name" {
+  description = "static website source folder"
+  type        = string
+  default     = "$web"
+}
