@@ -1,6 +1,6 @@
 # Create Azure Storage account
 resource "azurerm_storage_account" "storage_account" {
-  name                = format("marketing",local.uniquer)
+  name                = format("marketing", local.uniquer)
   resource_group_name = local.resource_group_name
 
   location                 = var.location
