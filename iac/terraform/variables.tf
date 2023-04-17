@@ -23,9 +23,9 @@ variable "resources_prefix" {
 }
 
 variable "storage_account_list" {
-  description = "The name of the storage account"
+  description = "The base names of the storage account"
   type        = list
-  default     = ["marketing1", "marketing2","marketing3"]
+  default     = ["marketing3de4k", "marketingg35tgw","marketing3kdj2"]
 }
 
 variable "storage_account_tier" {
