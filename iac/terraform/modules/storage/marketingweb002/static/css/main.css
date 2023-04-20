@@ -20,6 +20,10 @@ main
 	padding-bottom: 2%;
 }
 
+.title-image
+{
+    height: 40vh;
+}
 .form
 {
     display: flex;
