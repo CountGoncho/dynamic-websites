@@ -37,7 +37,7 @@ variable "resource_all_prefix" {
 variable "website_unique_ids" {
   description = "The varying unique ids of the websites "
   type        = list(any)
-  default     = ["webkey01", "website02", "website03"]
+  default     = ["web001", "website02", "website03"]
 }
 
 variable "website_unique_name" {

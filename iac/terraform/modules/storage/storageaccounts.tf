@@ -12,14 +12,3 @@ resource "azurerm_storage_account" "storage_account" {
     error_404_document = var.static_website_error_404_document
   }
 }
-
-resource "azurerm_storage_blob" "webload" {
-  for_each = fileset(path.module, "${var.website_unique_name}/**")
-
-  name                   = trimprefix(each.key, "${var.website_unique_name}/")
-  storage_account_name   = var.website_unique_name
-  storage_container_name = var.web_container_name
-  type                   = "Block"
-  source                 = each.key
-  content_type           = "text/html"
-}

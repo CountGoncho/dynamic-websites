@@ -1,15 +1,24 @@
 # storage module
-module "webstorage" {
+module "storageaccounts" {
   source = "./modules/storage"
 
-  for_each            = toset(["web001", "web002", "web003"])
+  for_each = toset(["web001", "web002", "web003"])
   //for_each            = toset(var.website_unique_ids)
   resource_unique_id  = each.key
   resource_all_prefix = "marketing"
   website_unique_name = lower("marketing${each.key}")
-  //resource_web_base_path = "./public"
 }
 
+# blob module
+module "populateblobs" {
+  source = "./modules/blobs"
+
+  for_each = toset(["web001", "web002", "web003"])
+  //for_each            = toset(var.website_unique_ids)
+  resource_unique_id  = each.key
+  resource_all_prefix = "marketing"
+  website_unique_name = lower("marketing${each.key}")
+}
 /*
 # Create Azure Storage account
 resource "azurerm_storage_account" "storage_account" {
