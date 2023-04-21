@@ -10,6 +10,7 @@ module "storageaccounts" {
 }
 
 # blob module
+/*
 module "populateblobs" {
   source = "./modules/blobs"
 
@@ -19,6 +20,7 @@ module "populateblobs" {
   resource_all_prefix = "marketing"
   website_unique_name = lower("marketing${each.key}")
 }
+*/
 /*
 # Create Azure Storage account
 resource "azurerm_storage_account" "storage_account" {
