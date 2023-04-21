@@ -87,3 +87,21 @@ jobs:
       # Terraform Apply
       - name: Terraform Apply
         run: terraform apply -auto-approve -var="location=uk south" -var="resources_prefix=mktg"
+
+      # Copy site 1
+      - name: copy site 1
+        uses: Azure/CLI@v1
+        with: 
+          inlineScript: az storage blob upload-batch --account-name marketingweb001 --auth-mode key -d '$web' -s 'iac/terraform/modules/blobs/marketingweb001'
+
+     # Copy site 2
+      - name: copy site 2
+        uses: Azure/CLI@v1
+        with: 
+          inlineScript: az storage blob upload-batch --account-name marketingweb002 --auth-mode key -d '$web' -s 'iac/terraform/modules/blobs/marketingweb002'
+
+      # Copy site 3
+      - name: copy site 3
+        uses: Azure/CLI@v1
+        with: 
+          inlineScript: az storage blob upload-batch --account-name marketingweb003 --auth-mode key -d '$web' -s 'iac/terraform/modules/blobs/marketingweb003'
