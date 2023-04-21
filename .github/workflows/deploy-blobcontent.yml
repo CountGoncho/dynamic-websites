@@ -18,7 +18,7 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-            az storage blob upload-batch --account-name marketingweb001 --auth-mode key -d '$web' -s /iac/terraform/modules/blobs/marketingweb001
+            az storage blob upload-batch --account-name marketingweb001 --auth-mode key -d '$web' -s .
 
   # Azure logout
     - name: logout
